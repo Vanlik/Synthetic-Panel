@@ -1,0 +1,148 @@
+\documentclass[xcolor=dvipsnames]{beamer} % dvipsnames gives more built-in colors
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{ {./figures/} }
+\usepackage{tikz} %for drawing
+\usetheme{Madrid}
+% \usetheme{CambridgeUS}
+%\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+%\useinnertheme{circles}
+
+
+%\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+\definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49} % Kindai-like theme
+
+%---set color of the beamer to be dark blue------
+%\usecolortheme[named=UBCblue]{structure}
+\usecolortheme[named=darkcerulean]{structure}
+%\usecolortheme[named=Mahogany]{structure} % Sample dvipsnames color [kinda red somehow]
+%\usepackage{pgf}  
+%\logo{\pgfputat{\pgfxy(9.45,1.5)}{\pgfbox[center,base]{\includegraphics[width=1.7cm]{KINDAI.jpg}}}}
+%
+%\usepackage{fancyhdr}
+%\renewcommand{\headheight}{0.6in}
+%\setlength{\headwidth}{\textwidth}
+%\fancyhead[R]{}% empty left
+%\fancyhead[L]{ % right
+ %  \includegraphics[height=0.53in]{KINDAI}
+%}
+%\pagestyle{fancy}
+%-----------------------------------------
+%Including logo onto every page
+%\logo{\includegraphics[height=0.8cm]{kindai.jpg}\vspace{0.5cm}}
+
+%-------------New font set-up-----------
+%\usepackage[math]{kurier}
+%\usepackage[no-math]{fontspec}
+%\setmainfont{Fontin Sans}
+%\setsansfont{Fontin Sans}
+%---------------------------------------------
+
+%\beamertemplatenavigationsymbolsempty
+
+\hypersetup{linkcolor=linkBlue}
+\hypersetup{urlcolor=linkBlue}
+\hypersetup{filecolor=linkBlue}
+\hypersetup{citecolor=linkBlue}
+
+
+\title[Synthetic Panel Data]{Literature Review: Synthetic Panel Data}%\\\small{\textrm{Evidence From India}}}
+%\date{}
+\author[Vanlik TAN (Econ Unit)]{Vanlik TAN\\
+\texttt{\href{mailto:vanlik.tan@gmail.com}{vanlik.tan@gmail.com}}\\Intern at Economics Unit \\ CDRI}
+%\titlegraphic{\includegraphics[width=2cm]{KINDAI.jpg}\hspace*{0.1cm}}
+
+%Front page ends here
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%This will fill later after sections have been written down
+% \begin{frame}
+% \frametitle{Table of contents}
+% \tableofcontents
+% \end{frame}
+
+\begin{frame}{Making Bib file (.bib)}
+
+\begin{itemize}
+    \item External file specifically used for storing all references 
+    \item Can be generated online or offline depending on users' preference
+    \item Different formats. For example, an article can be cited as:\\
+    \texttt{@article \{key ,
+author = \{\}, title = \{\},\\
+journal = \{\}, volume = {},\\
+year = \{\},number = \{\},\\
+pages = \{\}
+\}
+}
+    \item Just change \texttt{@article} to \texttt{@book, @phdthesis, @techreport, @misc}. \footnote{Refer to \href{http://web.mit.edu/rsi/www/pdfs/bibtex-format.pdf}{http://web.mit.edu/rsi/www/pdfs/bibtex-format.pdf} for more details.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Citing in Chicago Style}
+    \begin{itemize}
+        \item BibTex does not really support well with Chicago-style referencing.
+        \item Require additional package \href{https://ctan.org/pkg/biblatex-chicago?lang=en}{\texttt{biblatex-chicago}}
+        \begin{itemize}
+            \item In \LaTeX, we declare package in the preamble section (the top). \\Ex:     \textbackslash usepackage[authordate,autocite=inline,backend=biber]\{biblatex-chicago\}
+            \item \texttt{biblatex-chicago} is special package for chicago format referencing. At the end of document write \printbiblography
+            \item As for inline citing, write \textbackslash autocite\{\texttt{key-in-the-bib-file}\}.
+            
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Example}
+\begin{block}{\texttt{main.tex}}
+
+\textbackslash documentclass[a4paper]\{article\}
+\textbackslash usepackage[authordate,autocite=inline,backend=biber]\{biblatex-chicago\}
+\textbackslash bibliography\{reference\}\\
+\vspace{}
+\textbackslash begin\{document\} \\
+\textbackslash title\{My first \LaTeX file \} \\
+\textbackslash author\{Me\} \\
+\textbackslash maketitle
+
+%\section{Demonstration}
+\vspace{}
+Write something \textbackslash autocite\{mckenzie2014\}.
+
+\textbackslash printbibliography  \\
+\textbackslash end\{document\}
+\end{block}
+\end{frame}
+\begin{frame}{con't}
+    
+
+\begin{block}{reference.bib}
+@article\{mckenzie2014,
+	Author = \{David McKenzie and Christopher Woodruff\},\\
+	%Date-Added = \{2020-01-22 14:54:34 +0900\},\\
+	%Date-Modified = {2020-01-22 14:55:32 +0900},\\
+	Journal = \{The World Bank Research Observer\},\\
+	Number = \{1\},\\
+	Pages = \{48-82\},\\
+	Title = \{What Are We Learning from Business Training and Entrepreneurship Evaluations around the Developing World?\},\\
+	Volume = \{29\},\\
+	Year = \{2014\}\}
+
+\end{block}
+\end{frame}
+    
+\begin{frame}{Result}
+\begin{figure}
+    \centering
+    \includegraphics[width = 13cm, height = 8cm]{figures/figure 1.png}
+    \caption{Caption}
+    %\label{fig:my_label}
+\end{figure}
+
+\end{frame}
+
+\end{document}
